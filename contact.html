@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" href="images/logo2.jpg">
+
+</head>
+<body>
+    
+<div class="container">
+
+<header>
+
+    <div class="imglogo"><img src="./images/logo2.jpg" alt="logo"></div>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <a href="index.html">home</a>
+        <a href="service.html">service</a>
+        <a href="career.html">careers/Intenship</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">contact</a>
+    </nav>
+
+</header>
+
+<h1 class="heading">contact us</h1>
+
+<!-- contact section  -->
+
+<section class="contact">
+
+<div class="image">
+    <img src="images/logo2.jpg" alt="">
+</div>
+
+<form name="submit-to-google-sheet" method="post">
+
+    <div class="inputBox">
+        <input type="text" placeholder="name" name="Name">
+        <input type="email" placeholder="email" name="Email">
+    </div>
+
+    <input type="text" placeholder="subject" name="Subject" class="box">
+
+    <textarea placeholder="message" name="Message" id="" cols="30" rows="10"></textarea>
+    
+    <span id="msg"></span>
+
+    <input type="submit" class="btn">
+
+</form>
+
+</section>
+
+
+<!-- footer section  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>about us</h3>
+            <p align="justify">AntsWare Technologies crafts unique digital solutions for an enhanced online presence.
+                Specializing in custom web development,responsive design, e-commerce, and CMS, our team ensures modern, 
+                scalable, and future-proof solutions. Whether you're a startup or established business, our personalized services 
+                align with your goals. We pride ourselves on on-time delivery and offer ongoing support for optimal website performance. Contact us to bring your digital vision to life.</p>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="index.html">home</a>
+            <a href="service.html">service</a>
+            <a href="career.html">careers/Intenship</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">contact</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="https://www.facebook.com/profile.php?id=61556380285199" target="_blank">facebook</a>
+            <a href="https://www.instagram.com/ants_academy?igsh=MW15dnlpYmppYzAxOQ==" target="_blank">instagram</a>
+            <a href="https://www.linkedin.com/company/antsware-technologies/" target="_blank">linkedin</a>
+        </div>
+
+        <div class="box">
+            <h3>contact us</h3>
+            <p> <i class="fas fa-phone"></i> +91 9080013516 </p>
+            <p> <i class="fas fa-envelope"></i>antswaretechnologies@gmail.com</p>
+            <p> <i class="fas fa-map-marker-alt"></i> Chennai, Tamilnadu </p>
+        </div>
+
+    </div>
+
+    <div class="credit"> Copyrights &copy <span> Antswaretechnologies </span> | all rights reserved </div>
+
+</section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link -->
+<script src="js/script.js"></script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxwStHFK6koHT-ReZxLD3iILW9n9-Wx1E8fXxz5H5vXbebyL3dfsPSoIvKiP4ModaEHKQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</body>
+</html>
